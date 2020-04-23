@@ -24,6 +24,15 @@
         </div>
         <div class="detailButton"><i class="fas fa-search"></i> bekijk</div>
     </a>
+    <form>
+  <label><b>Huidige Locatie:</b></label>
+  <select> 
+      <?php for($i = 0; $i < count($locationrow); $i++){
+     GetLocationDataInSelect($locationrow, $i); 
+      } ?>
+</select>
+  <input type="submit" value="update">
+</form>
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

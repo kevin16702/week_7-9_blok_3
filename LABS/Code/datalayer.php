@@ -1,5 +1,12 @@
 <?php
-function OpenCon($conn){
+
+$link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 
+                "https" : "http") . "://" . $_SERVER['HTTP_HOST'] .  
+                $_SERVER['REQUEST_URI']; 
+  
+echo $link; 
+
+function OpenCon(){
 
 $dbhost = "localhost";
 $dbuser = "root";
@@ -24,9 +31,19 @@ function getAllData($conn){
     $row = $result->fetchAll(PDO::FETCH_ASSOC);
    // var_dump($row);
 }
-
-function getDataByID($row, $i){ 
+function locationData($conn){
+    global $locationrow;
+    $sql = "SELECT * FROM locations";
+    $result = $conn->query($sql);
+    $locationrow = $result->fetchAll(PDO::FETCH_ASSOC);
+    var_dump($locationrow);
+}
+function GetLocationDataInSelect($locationrow, $i){
+    $locationrow = $locationrow[$i];
+    echo "<option>" . $locationrow["name"] . "</option>"; 
+}
+function getDataByID($row, $i, $link){ 
     $row = $row[$i];
-    include "./Includes/CharacterSheet.php";
+    echo "<option value=$link/Includes/CharacterSheet.php?=$i>" . $row['name'] . "</option>";
 }
 ?>

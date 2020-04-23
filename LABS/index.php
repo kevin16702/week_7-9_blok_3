@@ -1,7 +1,8 @@
 <?php
 include "./Code/datalayer.php";
-OpenCon($conn);
+OpenCon();
 getAllData($conn);
+locationData($conn);
 ?>
 
 <!DOCTYPE html>
@@ -14,10 +15,11 @@ getAllData($conn);
 </head>
 <body>
     <div class="container bg-white">
-    <select>
+    <select onchange = "location = this.value">
     <?php for($i = 0; $i < count($row); $i++){
-    getDataByID($row, $i);
+    getDataByID($row, $i, $link);
     }?>
+    </select>
     </div>
 </body>
 </html>
