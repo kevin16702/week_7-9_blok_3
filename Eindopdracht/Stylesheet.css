@@ -1,0 +1,19 @@
+body{
+    background-color:  whitesmoke;
+}
+.gameimage{
+    width: 100px;
+    height: auto;
+}
+.container{
+    background-color:white;
+}
+.planbutton{
+    bottom: 0;
+}
+.gamecard{
+    height: 50em;
+}
+.removeform{
+    float: left;
+}
